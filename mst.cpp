@@ -30,7 +30,7 @@ void mst(void)
         par[i] = i;
     int cnt=0;
     int  sum = 0;
-    // vector< pair <int,int> > vec;
+     vector< pair <int,int> > vec;
     while(!pq.empty())
     {
         edge top = pq.top();
@@ -42,7 +42,7 @@ void mst(void)
         int a = find(u);
         int b = find(v);
         if(a!=b)
-        {   //vec.push_back(make_pair(u,v));
+        {   vec.push_back(make_pair(u,v));
             sum+=w;
             cnt++;
             par[b] = par[a];
@@ -53,11 +53,11 @@ void mst(void)
     }
     if(cnt == nod-1){
 
+         cout<<"MST="<<sum<<endl;
         for(int i=0;i<nod-1;i++)
         {
-          //  cout<<vec[i].first<<" "<<vec[i].second<<endl;
+            cout<<vec[i].first<<" "<<vec[i].second<<endl;
         }
-         cout<<"MST="<<sum<<endl;
     }
     else
         cout<<"-1"<<endl;
@@ -97,3 +97,21 @@ int main()
     return 0;
 }
 
+/*
+input
+5 8
+1 2 1
+1 5 5
+1 3 3
+5 3 2
+5 2 2
+4 5 1
+3 4 1
+4 2 1
+output:
+MST=4
+1 2
+4 5
+3 4
+2 4
+*/
